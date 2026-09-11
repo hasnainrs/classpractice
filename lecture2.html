@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration Form</title>
+</head>
+
+<body>
+
+    <h1>Student Registration</h1>
+
+    <!-- ================================================= -->
+    <!-- FORM                                               -->
+    <!-- ================================================= -->
+
+    <!--
+        action = where the form data will be sent
+
+        method = how the data will be submitted
+
+        POST = data goes in the HTTP request body
+
+        enctype = tells the browser how to encode form data
+
+        multipart/form-data is needed when uploading files
+    -->
+
+    <form action="server_page.php"
+          method="POST"
+          enctype="multipart/form-data">
+
+
+        <!-- ================================================= -->
+        <!-- TEXT INPUT                                         -->
+        <!-- ================================================= -->
+
+        <label for="fname">First Name:</label>
+
+        <input type="text"
+               id="fname"
+               name="fname">
+
+        <br><br>
+
+
+        <!-- ================================================= -->
+        <!-- EMAIL INPUT                                        -->
+        <!-- ================================================= -->
+
+        <label for="email">Email:</label>
+
+        <input type="email"
+               id="email"
+               name="email">
+
+        <br><br>
+
+
+        <!-- ================================================= -->
+        <!-- PASSWORD INPUT                                     -->
+        <!-- ================================================= -->
+
+        <label for="password">Password:</label>
+
+        <input type="password"
+               id="password"
+               name="password">
+
+        <br><br>
+
+
+        <!-- ================================================= -->
+        <!-- DATE INPUT                                         -->
+        <!-- ================================================= -->
+
+        <label for="dob">Date of Birth:</label>
+
+        <input type="date"
+               id="dob"
+               name="dob">
+
+        <br><br>
+
+
+        <!-- ================================================= -->
+        <!-- NUMBER INPUT                                       -->
+        <!-- ================================================= -->
+
+        <label for="age">Age:</label>
+
+        <input type="number"
+               id="age"
+               name="age">
+
+        <br><br>
+
+
+        <!-- ================================================= -->
+        <!-- TIME INPUT                                         -->
+        <!-- ================================================= -->
+
+        <label for="time">Preferred Interview Time:</label>
+
+        <input type="time"
+               id="time"
+               name="time">
+
+        <br><br>
+
+
+        <!-- ================================================= -->
+        <!-- URL INPUT                                          -->
+        <!-- ================================================= -->
+
+        <label for="website">Portfolio Website:</label>
+
+        <input type="url"
+               id="website"
+               name="website">
+
+        <br><br>
+
+
+        <!-- ================================================= -->
+        <!-- HIDDEN INPUT                                       -->
+        <!-- ================================================= -->
+
+        <!--
+            This field is not normally visible on the page.
+
+            IMPORTANT:
+            Hidden does NOT mean secure.
+            A user can inspect the HTML and see its value.
+        -->
+
+        <input type="hidden"
+               name="student_id"
+               value="12345">
+
+
+        <!-- ================================================= -->
+        <!-- RADIO BUTTONS                                      -->
+        <!-- ================================================= -->
+
+        <p>Choose your program:</p>
+
+        <!--
+            Radio buttons normally allow ONE choice.
+
+            All radio buttons have the same "name"
+            so the browser treats them as one group.
+        -->
+
+        <input type="radio"
+               id="cs"
+               name="program"
+               value="CS">
+
+        <label for="cs">Computer Science</label>
+
+
+        <input type="radio"
+               id="ee"
+               name="program"
+               value="EE">
+
+        <label for="ee">Electrical Engineering</label>
+
+
+        <input type="radio"
+               id="te"
+               name="program"
+               value="TE">
+
+        <label for="te">Telecom</label>
+
+        <br><br>
+
+
+        <!-- ================================================= -->
+        <!-- CHECKBOXES                                         -->
+        <!-- ================================================= -->
+
+        <p>Select programming languages you know:</p>
+
+        <!--
+            Checkboxes can allow multiple selections.
+        -->
+
+        <input type="checkbox"
+               id="python"
+               name="languages"
+               value="Python">
+
+        <label for="python">Python</label>
+
+
+        <input type="checkbox"
+               id="java"
+               name="languages"
+               value="Java">
+
+        <label for="java">Java</label>
+
+
+        <input type="checkbox"
+               id="cpp"
+               name="languages"
+               value="C++">
+
+        <label for="cpp">C++</label>
+
+        <br><br>
+
+
+        <!-- ================================================= -->
+        <!-- SELECT / DROPDOWN                                  -->
+        <!-- ================================================= -->
+
+        <label for="city">City:</label>
+
+        <select id="city" name="city">
+
+            <option value="mardan">Mardan</option>
+            <option value="peshawar">Peshawar</option>
+            <option value="islamabad">Islamabad</option>
+            <option value="lahore">Lahore</option>
+
+        </select>
+
+        <br><br>
+
+
+        <!-- ================================================= -->
+        <!-- TEXTAREA                                           -->
+        <!-- ================================================= -->
+
+        <label for="comments">Tell us about yourself:</label>
+
+        <br>
+
+        <textarea id="comments"
+                  name="comments"
+                  rows="5"
+                  cols="40"></textarea>
+
+        <br><br>
+
+
+        <!-- ================================================= -->
+        <!-- FILE UPLOAD                                        -->
+        <!-- ================================================= -->
+
+        <label for="cv">Upload your CV:</label>
+
+        <input type="file"
+               id="cv"
+               name="cv">
+
+        <br><br>
+
+
+        <!-- ================================================= -->
+        <!-- SUBMIT BUTTON                                      -->
+        <!-- ================================================= -->
+
+        <!--
+            Submit sends the form data to the URL
+            specified in the action attribute.
+        -->
+
+        <input type="submit"
+               value="Register">
+
+
+        <!-- ================================================= -->
+        <!-- RESET BUTTON                                       -->
+        <!-- ================================================= -->
+
+        <!--
+            Reset returns form fields to their initial values.
+        -->
+
+        <input type="reset"
+               value="Reset">
+
+
+        <!-- ================================================= -->
+        <!-- NORMAL BUTTON                                      -->
+        <!-- ================================================= -->
+
+        <!--
+            This is just a normal button.
+
+            By itself, it does NOT submit the form.
+        -->
+
+        <input type="button"
+               value="Just a Button">
+
+    </form>
+
+
+    <!-- ===================================================== -->
+    <!-- IFRAME                                                -->
+    <!-- ===================================================== -->
+
+    <h2>Embedded Website</h2>
+
+    <!--
+        iframe creates a window inside our webpage
+        that can display another document/page.
+    -->
+
+    <iframe
+        src="https://example.com"
+        width="500"
+        height="300"
+        title="Example Website">
+    </iframe>
+
+
+    <!-- ===================================================== -->
+    <!-- VIDEO                                                 -->
+    <!-- ===================================================== -->
+
+    <h2>Video</h2>
+
+    <!--
+        The video element allows video to be displayed
+        directly in an HTML page.
+    -->
+
+    <video width="400"
+           controls>
+
+        <source src="movie.mp4"
+                type="video/mp4">
+
+        Your browser does not support the video element.
+
+    </video>
+
+
+    <!-- ===================================================== -->
+    <!-- AUDIO                                                 -->
+    <!-- ===================================================== -->
+
+    <h2>Audio</h2>
+
+    <!--
+        The audio element allows audio to be played
+        directly in an HTML page.
+    -->
+
+    <audio controls>
+
+        <source src="audio.mp3"
+                type="audio/mpeg">
+
+        Your browser does not support the audio element.
+
+    </audio>
+
+</body>
+</html>
