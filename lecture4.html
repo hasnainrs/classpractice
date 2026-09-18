@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSS Lecture 4 Practice</title>
+
+    <style>
+
+        /* =====================================================
+           1. CSS BACKGROUND PROPERTIES
+           ===================================================== */
+
+        body {
+
+            /* Background color */
+            background-color: lightgray;
+
+            /* Background image */
+            background-image: url("https://www.w3schools.com/css/img_tree.png");
+
+            /* Do not repeat the image */
+            background-repeat: no-repeat;
+
+            /* Make the image cover the background */
+            background-size: cover;
+
+            /* Put the image in the center */
+            background-position: center;
+
+            /* Keep background fixed while scrolling */
+            background-attachment: fixed;
+        }
+
+
+        /* =====================================================
+           2. CSS LIST PROPERTIES
+           ===================================================== */
+
+        /* Change bullet type */
+        .list1 {
+            list-style-type: square;
+        }
+
+        /* Put the bullet inside the list */
+        .list2 {
+            list-style-position: inside;
+        }
+
+        /* Use an image as the bullet */
+        .list3 {
+            list-style-image: url("https://www.w3schools.com/css/sqpurple.gif");
+        }
+
+        /* list-style is a shorthand property */
+        .list4 {
+            list-style: upper-roman;
+        }
+
+        /* Make list items appear horizontally */
+        .menu li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+
+        /* =====================================================
+           3. CSS PSEUDO-CLASSES
+           ===================================================== */
+
+        /* Normal, unvisited link */
+        a:link {
+            color: blue;
+        }
+
+        /* Visited link */
+        a:visited {
+            color: purple;
+        }
+
+        /* Mouse is over the link */
+        a:hover {
+            color: red;
+        }
+
+        /* Link is being clicked */
+        a:active {
+            color: green;
+        }
+
+        /* Input is selected/focused */
+        input:focus {
+            background-color: yellow;
+        }
+
+        /* First child */
+        .children p:first-child {
+            color: red;
+        }
+
+        /* Last child */
+        .children p:last-child {
+            color: blue;
+        }
+
+        /* Select the second child */
+        .children p:nth-child(2) {
+            background-color: lightgreen;
+        }
+
+
+        /* =====================================================
+           4. CSS PSEUDO-ELEMENTS
+           ===================================================== */
+
+        /* Add content before the heading */
+        .pseudo h3::before {
+            content: "★ ";
+        }
+
+        /* Add content after the heading */
+        .pseudo h3::after {
+            content: " ✓";
+        }
+
+        /* Style the first letter */
+        .pseudo p::first-letter {
+            font-size: 40px;
+        }
+
+        /* Style the first line */
+        .pseudo p::first-line {
+            font-weight: bold;
+        }
+
+        /* Style the list marker */
+        .pseudo li::marker {
+            color: red;
+        }
+
+        /* Style text when the user selects it */
+        ::selection {
+            background: yellow;
+            color: black;
+        }
+
+
+        /* =====================================================
+           5. CSS COMBINATORS
+           ===================================================== */
+
+        /* DESCENDANT SELECTOR
+           Selects all p elements inside .box */
+        .box p {
+            color: blue;
+        }
+
+
+        /* CHILD SELECTOR
+           Selects only p elements that are direct children */
+        .box > p {
+            background-color: yellow;
+        }
+
+
+        /* ADJACENT SIBLING SELECTOR
+           Selects the p immediately after h3 */
+        .adjacent h3 + p {
+            color: red;
+        }
+
+
+        /* GENERAL SIBLING SELECTOR
+           Selects all p elements after h3 */
+        .siblings h3 ~ p {
+            background-color: lightgreen;
+        }
+
+
+        /* =====================================================
+           6. CSS MEDIA QUERIES
+           ===================================================== */
+
+        /* 
+           If screen width is between 500px and 800px,
+           change the background color.
+        */
+        @media screen and (min-width: 500px) and (max-width: 800px) {
+
+            body {
+                background-color: lightblue;
+            }
+        }
+
+
+        /*
+           COMMA = OR
+
+           Condition 1:
+           Screen width is between 500px and 800px
+
+           OR
+
+           Condition 2:
+           Screen width is 1100px or more
+        */
+
+        @media screen and (min-width: 500px) and (max-width: 800px),
+               screen and (min-width: 1100px) {
+
+            h2 {
+                font-size: 40px;
+                background-color: yellow;
+            }
+        }
+
+
+        /* 
+           ORIENTATION
+
+           These styles apply when the screen
+           is in landscape mode.
+        */
+
+        @media screen and (orientation: landscape) {
+
+            body {
+                background-color: lightgreen;
+            }
+        }
+
+
+        /* 
+           PRINT
+
+           These styles apply when the page is printed.
+        */
+
+        @media print {
+
+            body {
+                background-color: white;
+                color: black;
+            }
+
+            .menu {
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <h1>CSS Lecture 4 Practice</h1>
+
+
+    <!-- =====================================================
+         BACKGROUND PROPERTIES
+         ===================================================== -->
+
+    <h2>1. Background Properties</h2>
+
+    <p>
+        The body of this page uses background-color,
+        background-image, background-repeat,
+        background-size, background-position and
+        background-attachment.
+    </p>
+
+
+    <!-- =====================================================
+         LIST PROPERTIES
+         ===================================================== -->
+
+    <h2>2. List Properties</h2>
+
+    <h3>list-style-type</h3>
+
+    <ul class="list1">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+
+    <h3>list-style-position</h3>
+
+    <ul class="list2">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+
+    <h3>list-style-image</h3>
+
+    <ul class="list3">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+
+    <h3>list-style</h3>
+
+    <ol class="list4">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ol>
+
+
+    <h3>li { display: inline; }</h3>
+
+    <ul class="menu">
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+
+
+    <!-- =====================================================
+         PSEUDO-CLASSES
+         ===================================================== -->
+
+    <h2>3. Pseudo-classes</h2>
+
+    <p>
+        <a href="https://www.google.com">Move your mouse over this link</a>
+    </p>
+
+    <p>
+        Click inside the input:
+    </p>
+
+    <input type="text" placeholder="Click me">
+
+
+    <div class="children">
+
+        <p>First paragraph</p>
+
+        <p>Second paragraph</p>
+
+        <p>Third paragraph</p>
+
+    </div>
+
+
+    <!-- =====================================================
+         PSEUDO-ELEMENTS
+         ===================================================== -->
+
+    <div class="pseudo">
+
+        <h2>4. Pseudo-elements</h2>
+
+        <h3>CSS Pseudo-elements</h3>
+
+        <p>
+            This is a paragraph. The first letter and first line
+            are styled using pseudo-elements.
+        </p>
+
+
+        <ul>
+            <li>First item</li>
+            <li>Second item</li>
+            <li>Third item</li>
+        </ul>
+
+    </div>
+
+
+    <!-- =====================================================
+         COMBINATORS
+         ===================================================== -->
+
+    <h2>5. CSS Combinators</h2>
+
+
+    <div class="box">
+
+        <p>
+            Direct child of the div.
+        </p>
+
+        <div>
+
+            <p>
+                This is inside another div.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="adjacent">
+
+        <h3>Adjacent Sibling</h3>
+
+        <p>
+            I come immediately after h3.
+        </p>
+
+        <p>
+            I do not come immediately after h3.
+        </p>
+
+    </div>
+
+
+    <div class="siblings">
+
+        <h3>General Sibling</h3>
+
+        <p>Paragraph 1</p>
+
+        <p>Paragraph 2</p>
+
+        <p>Paragraph 3</p>
+
+    </div>
+
+
+    <!-- =====================================================
+         MEDIA QUERIES
+         ===================================================== -->
+
+    <h2>6. Media Queries</h2>
+
+    <p>
+        Resize the browser window and observe what happens.
+    </p>
+
+    <p>
+        Try changing the screen width between 500px and 800px,
+        and then make it larger than 1100px.
+    </p>
+
+    <p>
+        You can also rotate your device to test the
+        landscape media query.
+    </p>
+
+    <p>
+        Finally, press Ctrl + P to test the print media query.
+    </p>
+
+
+</body>
+</html>
