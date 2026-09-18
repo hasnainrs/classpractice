@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>CSS Box Model and Properties</title>
+
+    <style>
+
+        /* =====================================================
+           1. MARGIN
+           ===================================================== */
+
+        .margin-box {
+            background-color: lightblue;
+
+            /* Margin creates space OUTSIDE the element */
+            margin: 30px;
+        }
+
+
+        /* =====================================================
+           2. PADDING
+           ===================================================== */
+
+        .padding-box {
+            background-color: lightgreen;
+
+            /* Padding creates space INSIDE the element */
+            padding: 30px;
+        }
+
+
+        /* =====================================================
+           3. BORDER
+           ===================================================== */
+
+        .border-box {
+
+            /* Border surrounds the content and padding */
+            border: 5px solid black;
+        }
+
+
+        /* =====================================================
+           4. BORDER-RADIUS
+           ===================================================== */
+
+        .radius-box {
+
+            border: 3px solid blue;
+
+            /* Makes the corners rounded */
+            border-radius: 20px;
+        }
+
+
+        /* =====================================================
+           5. WIDTH AND HEIGHT
+           ===================================================== */
+
+        .size-box {
+
+            /* Controls the width of the element */
+            width: 300px;
+
+            /* Controls the height of the element */
+            height: 100px;
+
+            background-color: lightyellow;
+            border: 2px solid black;
+        }
+
+
+        /* =====================================================
+           6. MIN-WIDTH AND MIN-HEIGHT
+           ===================================================== */
+
+        .minimum-box {
+
+            /* Element cannot become smaller than 200px wide */
+            min-width: 200px;
+
+            /* Element cannot become shorter than 100px */
+            min-height: 100px;
+
+            background-color: lightpink;
+            border: 2px solid black;
+        }
+
+
+        /* =====================================================
+           7. MAX-WIDTH AND MAX-HEIGHT
+           ===================================================== */
+
+        .maximum-box {
+
+            /* Element cannot become wider than 400px */
+            max-width: 400px;
+
+            /* Element cannot become taller than 150px */
+            max-height: 150px;
+
+            background-color: lightgray;
+            border: 2px solid black;
+
+            /* If the content becomes too large,
+               the extra content can be scrolled */
+            overflow: auto;
+        }
+
+
+        /* =====================================================
+           8. DISPLAY
+           ===================================================== */
+
+        .display-box {
+
+            background-color: orange;
+            padding: 10px;
+
+            /* display:block makes the element take its own line */
+            display: block;
+        }
+
+        .inline-box {
+
+            background-color: lightblue;
+
+            /* inline allows elements to appear beside each other */
+            display: inline;
+        }
+
+
+        /* =====================================================
+           9. OUTLINE
+           ===================================================== */
+
+        .outline-box {
+
+            border: 2px solid black;
+
+            /* Outline is drawn OUTSIDE the border */
+            outline: 3px solid red;
+        }
+
+
+        /* =====================================================
+           10. OUTLINE-OFFSET
+           ===================================================== */
+
+        .outline-offset-box {
+
+            border: 2px solid black;
+
+            outline: 3px solid blue;
+
+            /* Creates space between the border and outline */
+            outline-offset: 5px;
+        }
+
+
+        /* =====================================================
+           11. RESIZE
+           ===================================================== */
+
+        textarea {
+
+            width: 300px;
+            height: 100px;
+
+            /* Allows the user to resize the textarea */
+            resize: both;
+        }
+
+
+        /* =====================================================
+           12. OVERFLOW
+           ===================================================== */
+
+        .overflow-box {
+
+            width: 250px;
+            height: 80px;
+
+            border: 2px solid black;
+
+            /* Adds scrollbars if content does not fit */
+            overflow: auto;
+        }
+
+
+        /* =====================================================
+           13. FLOAT
+           ===================================================== */
+
+        .float-image {
+
+            width: 100px;
+            height: 100px;
+
+            background-color: lightgreen;
+
+            /* Moves the element to the left */
+            float: left;
+
+            /* Adds some space around it */
+            margin-right: 15px;
+        }
+
+
+        /* =====================================================
+           14. CLEAR
+           ===================================================== */
+
+        .clear-box {
+
+            /* Prevents this element from sitting beside
+               a floated element */
+            clear: both;
+
+            background-color: lightyellow;
+        }
+
+
+        /* =====================================================
+           15. POSITION
+           ===================================================== */
+
+        .position-parent {
+
+            /* Makes this element the positioning reference
+               for an absolutely positioned child */
+            position: relative;
+
+            width: 500px;
+            height: 200px;
+
+            background-color: lightgray;
+        }
+
+
+        .position-child {
+
+            /* Allows us to position this element using
+               top, right, bottom and left */
+            position: absolute;
+
+            /* Move 20px from the top */
+            top: 20px;
+
+            /* Move 20px from the right */
+            right: 20px;
+
+            width: 100px;
+            height: 50px;
+
+            background-color: orange;
+        }
+
+
+        /* =====================================================
+           16. TOP, RIGHT, BOTTOM AND LEFT
+           ===================================================== */
+
+        .position-example {
+
+            position: relative;
+
+            /* Move the element 20px from its normal position */
+            top: 20px;
+
+            /* Move it 10px to the right */
+            left: 10px;
+
+            background-color: lightblue;
+
+            padding: 10px;
+        }
+
+
+        /* =====================================================
+           17. Z-INDEX
+           ===================================================== */
+
+        .z-index-box1 {
+
+            position: absolute;
+
+            width: 150px;
+            height: 100px;
+
+            background-color: red;
+
+            /* Lower z-index */
+            z-index: 1;
+        }
+
+
+        .z-index-box2 {
+
+            position: absolute;
+
+            width: 150px;
+            height: 100px;
+
+            background-color: blue;
+
+            /* Higher z-index means it appears in front */
+            z-index: 2;
+
+            /* Move it so the two boxes overlap */
+            margin-left: 50px;
+            margin-top: 50px;
+        }
+
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <h1>CSS Box Model and Properties</h1>
+
+
+    <!-- =====================================================
+         MARGIN
+         ===================================================== -->
+
+    <h2>1. Margin</h2>
+
+    <div class="margin-box">
+
+        This box has 30px margin.
+
+    </div>
+
+
+    <!-- =====================================================
+         PADDING
+         ===================================================== -->
+
+    <h2>2. Padding</h2>
+
+    <div class="padding-box">
+
+        This box has 30px padding.
+
+    </div>
+
+
+    <!-- =====================================================
+         BORDER
+         ===================================================== -->
+
+    <h2>3. Border</h2>
+
+    <div class="border-box">
+
+        This box has a 5px black border.
+
+    </div>
+
+
+    <!-- =====================================================
+         BORDER-RADIUS
+         ===================================================== -->
+
+    <h2>4. Border Radius</h2>
+
+    <div class="radius-box">
+
+        This box has rounded corners.
+
+    </div>
+
+
+    <!-- =====================================================
+         WIDTH AND HEIGHT
+         ===================================================== -->
+
+    <h2>5. Width and Height</h2>
+
+    <div class="size-box">
+
+        Width = 300px<br>
+        Height = 100px
+
+    </div>
+
+
+    <!-- =====================================================
+         MIN-WIDTH AND MIN-HEIGHT
+         ===================================================== -->
+
+    <h2>6. Minimum Width and Height</h2>
+
+    <div class="minimum-box">
+
+        Minimum width = 200px<br>
+        Minimum height = 100px
+
+    </div>
+
+
+    <!-- =====================================================
+         MAX-WIDTH AND MAX-HEIGHT
+         ===================================================== -->
+
+    <h2>7. Maximum Width and Height</h2>
+
+    <div class="maximum-box">
+
+        This box has a maximum width of 400px
+        and maximum height of 150px.
+
+        If there is too much content,
+        overflow: auto allows scrolling.
+
+    </div>
+
+
+    <!-- =====================================================
+         DISPLAY
+         ===================================================== -->
+
+    <h2>8. Display</h2>
+
+    <div class="display-box">
+
+        This is a block element.
+
+    </div>
+
+    <span class="inline-box">
+        Inline Box 1
+    </span>
+
+    <span class="inline-box">
+        Inline Box 2
+    </span>
+
+
+    <!-- =====================================================
+         OUTLINE
+         ===================================================== -->
+
+    <h2>9. Outline</h2>
+
+    <div class="outline-box">
+
+        This box has a border AND an outline.
+
+    </div>
+
+
+    <!-- =====================================================
+         OUTLINE-OFFSET
+         ===================================================== -->
+
+    <h2>10. Outline Offset</h2>
+
+    <div class="outline-offset-box">
+
+        There is a 5px gap between the border and outline.
+
+    </div>
+
+
+    <br><br>
+
+
+    <!-- =====================================================
+         RESIZE
+         ===================================================== -->
+
+    <h2>11. Resize</h2>
+
+    <textarea>
+
+Try resizing this box.
+
+    </textarea>
+
+
+    <!-- =====================================================
+         OVERFLOW
+         ===================================================== -->
+
+    <h2>12. Overflow</h2>
+
+    <div class="overflow-box">
+
+        This box is only 250px wide and 80px high.
+
+        There is more text than the box can contain.
+
+        Because we used overflow: auto,
+        the browser can provide scrollbars.
+
+    </div>
+
+
+    <!-- =====================================================
+         FLOAT
+         ===================================================== -->
+
+    <h2>13. Float</h2>
+
+    <div class="float-image">
+
+        FLOAT
+
+    </div>
+
+    <p>
+
+        This paragraph is next to the floated box.
+
+        The text flows around the element because
+        the element has float: left.
+
+        Float was commonly used for layouts before
+        Flexbox and Grid became common.
+
+    </p>
+
+
+    <!-- =====================================================
+         CLEAR
+         ===================================================== -->
+
+    <div class="clear-box">
+
+        This element uses clear: both.
+
+        It will not sit beside the floated element.
+
+    </div>
+
+
+    <!-- =====================================================
+         POSITION
+         ===================================================== -->
+
+    <h2>14. Position</h2>
+
+    <div class="position-parent">
+
+        Parent element
+
+        <div class="position-child">
+
+            Positioned Child
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         TOP, RIGHT, BOTTOM AND LEFT
+         ===================================================== -->
+
+    <h2>15. Top, Right, Bottom and Left</h2>
+
+    <div class="position-example">
+
+        This element has been moved using top and left.
+
+    </div>
+
+
+    <br><br><br>
+
+
+    <!-- =====================================================
+         Z-INDEX
+         ===================================================== -->
+
+    <h2>16. Z-Index</h2>
+
+    <div style="position: relative; height: 220px;">
+
+        <div class="z-index-box1">
+            Box 1<br>
+            z-index: 1
+        </div>
+
+        <div class="z-index-box2">
+            Box 2<br>
+            z-index: 2
+        </div>
+
+    </div>
+
+
+</body>
+</html>
