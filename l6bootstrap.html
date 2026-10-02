@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Makes the page responsive on phones/tablets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lecture 6 - Bootstrap Components Demo</title>
+
+    <!-- =========================================================
+         BOOTSTRAP CSS
+         This imports Bootstrap's ready-made CSS classes.
+         ========================================================= -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet">
+</head>
+
+<body>
+
+<!-- =========================================================
+     1. NAVBAR
+     Lecture concept:
+     - Navbar
+     - Responsive navigation
+     ========================================================= -->
+
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+
+    <div class="container">
+
+        <!-- Website/brand name -->
+        <a class="navbar-brand" href="#">
+            Student Portal
+        </a>
+
+        <!-- Mobile menu button -->
+        <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#mainNavbar">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <!-- Navigation links -->
+        <div class="collapse navbar-collapse" id="mainNavbar">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#courses">
+                        Courses
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#registration">
+                        Registration
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#faq">
+                        FAQ
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- =========================================================
+     2. BREADCRUMB
+     Lecture concept:
+     - Breadcrumb
+     Shows the user's location in the website hierarchy.
+     ========================================================= -->
+
+<div class="container mt-4">
+
+    <nav aria-label="breadcrumb">
+
+        <ol class="breadcrumb">
+
+            <li class="breadcrumb-item">
+                <a href="#">Home</a>
+            </li>
+
+            <li class="breadcrumb-item">
+                <a href="#">Courses</a>
+            </li>
+
+            <li class="breadcrumb-item active">
+                Web Development
+            </li>
+
+        </ol>
+
+    </nav>
+
+</div>
+
+
+<!-- =========================================================
+     3. CAROUSEL
+     Lecture concept:
+     - Carousel
+     - Slides
+     - Captions
+     - Navigation buttons
+     ========================================================= -->
+
+<div class="container mb-5">
+
+    <div id="courseCarousel"
+         class="carousel slide"
+         data-bs-ride="carousel">
+
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+
+            <button
+                type="button"
+                data-bs-target="#courseCarousel"
+                data-bs-slide-to="0"
+                class="active">
+            </button>
+
+            <button
+                type="button"
+                data-bs-target="#courseCarousel"
+                data-bs-slide-to="1">
+            </button>
+
+            <button
+                type="button"
+                data-bs-target="#courseCarousel"
+                data-bs-slide-to="2">
+            </button>
+
+        </div>
+
+
+        <!-- Slides -->
+        <div class="carousel-inner">
+
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+
+                <div class="bg-primary text-white p-5 text-center">
+
+                    <h2>
+                        Web Development
+                    </h2>
+
+                    <p>
+                        Learn HTML, CSS and JavaScript.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+
+                <div class="bg-success text-white p-5 text-center">
+
+                    <h2>
+                        Cloud Computing
+                    </h2>
+
+                    <p>
+                        Learn Docker, Kubernetes and cloud technologies.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+
+                <div class="bg-warning p-5 text-center">
+
+                    <h2>
+                        Database Systems
+                    </h2>
+
+                    <p>
+                        Learn how modern applications store data.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Previous button -->
+        <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#courseCarousel"
+            data-bs-slide="prev">
+
+            <span class="carousel-control-prev-icon"></span>
+
+        </button>
+
+
+        <!-- Next button -->
+        <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#courseCarousel"
+            data-bs-slide="next">
+
+            <span class="carousel-control-next-icon"></span>
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     4. ALERT
+     Lecture concept:
+     - Alerts
+     Provides feedback to the user.
+     ========================================================= -->
+
+<div class="container mb-4">
+
+    <div class="alert alert-success">
+
+        <strong>Success!</strong>
+        Registration for the new semester is now open.
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     5. BADGES
+     Lecture concept:
+     - Badges
+     Small labels/counts.
+     ========================================================= -->
+
+<div class="container mb-5">
+
+    <h3>
+        Student Dashboard
+
+        <!-- Badge showing notification count -->
+        <span class="badge bg-danger">
+            5 Notifications
+        </span>
+    </h3>
+
+</div>
+
+
+<!-- =========================================================
+     6. CARDS
+     Lecture concept:
+     - Cards
+     - Card image
+     - Card body
+     - Card title
+     - Card text
+     - Buttons
+     ========================================================= -->
+
+<section id="courses" class="container mb-5">
+
+    <h2 class="mb-4">
+        Available Courses
+    </h2>
+
+
+    <div class="row">
+
+        <!-- CARD 1 -->
+        <div class="col-md-4 mb-4">
+
+            <div class="card h-100">
+
+                <!-- Card image -->
+                <div class="bg-primary text-white text-center p-5">
+                    WEB
+                </div>
+
+                <!-- Card content -->
+                <div class="card-body">
+
+                    <h5 class="card-title">
+                        Web Development
+                    </h5>
+
+                    <p class="card-text">
+                        Learn HTML, CSS, Bootstrap and JavaScript.
+                    </p>
+
+                    <!-- Button -->
+                    <button
+                        class="btn btn-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#courseModal">
+
+                        View Course
+
+                    </button>
+
+                </div>
+
+                <!-- Card footer -->
+                <div class="card-footer">
+
+                    <span class="badge bg-success">
+                        Available
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD 2 -->
+        <div class="col-md-4 mb-4">
+
+            <div class="card h-100">
+
+                <div class="bg-success text-white text-center p-5">
+                    CLOUD
+                </div>
+
+                <div class="card-body">
+
+                    <h5 class="card-title">
+                        Cloud Computing
+                    </h5>
+
+                    <p class="card-text">
+                        Learn virtualization, containers and cloud platforms.
+                    </p>
+
+                    <button class="btn btn-success">
+                        View Course
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CARD 3 -->
+        <div class="col-md-4 mb-4">
+
+            <div class="card h-100">
+
+                <div class="bg-warning text-center p-5">
+                    DATABASE
+                </div>
+
+                <div class="card-body">
+
+                    <h5 class="card-title">
+                        Database Systems
+                    </h5>
+
+                    <p class="card-text">
+                        Learn how applications store and retrieve information.
+                    </p>
+
+                    <button class="btn btn-warning">
+                        View Course
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     7. MODAL
+     Lecture concept:
+     - Modal
+     A popup that appears above the page.
+     ========================================================= -->
+
+<div
+    class="modal fade"
+    id="courseModal"
+    tabindex="-1">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+
+            <!-- Modal header -->
+            <div class="modal-header">
+
+                <h5 class="modal-title">
+                    Web Development
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal">
+                </button>
+
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+
+                <p>
+                    This course covers modern web development.
+                </p>
+
+                <p>
+                    Topics include HTML, CSS, Bootstrap and JavaScript.
+                </p>
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal">
+
+                    Close
+
+                </button>
+
+                <button
+                    type="button"
+                    class="btn btn-primary">
+
+                    Enroll
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     8. FORM
+     Lecture concepts:
+     - form-label
+     - form-control
+     - form-control-lg
+     - form-control-sm
+     - form-text
+     - disabled
+     - readonly
+     - form-control-plaintext
+     - form-control-color
+     - form-select
+     - form-select-lg
+     - form-select-sm
+     - form-check
+     - form-check-label
+     - form-check-input
+     - form-switch
+     - form-check-inline
+     - form-check-reverse
+     - btn-check
+     - form-range
+     - input-group
+     - input-group-text
+     - input-group-sm
+     - input-group-lg
+     - form-floating
+     - is-invalid
+     ========================================================= -->
+
+<section id="registration" class="container mb-5">
+
+    <h2 class="mb-4">
+        Student Registration Form
+    </h2>
+
+
+    <form>
+
+        <!-- =====================================================
+             form-label + form-control
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                class="form-control"
+                placeholder="Enter your full name">
+
+        </div>
+
+
+        <!-- =====================================================
+             form-control-lg
+             Large input
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Large Input
+            </label>
+
+            <input
+                type="text"
+                class="form-control form-control-lg"
+                placeholder="Large Bootstrap input">
+
+        </div>
+
+
+        <!-- =====================================================
+             form-control-sm
+             Small input
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Small Input
+            </label>
+
+            <input
+                type="text"
+                class="form-control form-control-sm"
+                placeholder="Small Bootstrap input">
+
+        </div>
+
+
+        <!-- =====================================================
+             form-text
+             Additional information for the user
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Password
+            </label>
+
+            <input
+                type="password"
+                class="form-control">
+
+            <div class="form-text">
+
+                Password must contain at least 8 characters.
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             disabled
+             User cannot interact with this field.
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Student Status
+            </label>
+
+            <input
+                type="text"
+                class="form-control"
+                value="Currently Active"
+                disabled>
+
+        </div>
+
+
+        <!-- =====================================================
+             readonly
+             User can see the value but cannot edit it.
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Student ID
+            </label>
+
+            <input
+                type="text"
+                class="form-control"
+                value="STU-2026-001"
+                readonly>
+
+        </div>
+
+
+        <!-- =====================================================
+             form-control-plaintext
+             Displays form information like plain text.
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Department
+            </label>
+
+            <input
+                type="text"
+                class="form-control-plaintext"
+                value="Computer Science"
+                readonly>
+
+        </div>
+
+
+        <!-- =====================================================
+             form-control-color
+             Color picker
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Choose Your Favourite Color
+            </label>
+
+            <input
+                type="color"
+                class="form-control form-control-color"
+                value="#563d7c">
+
+        </div>
+
+
+        <!-- =====================================================
+             form-select
+             Normal-size dropdown
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Select Course
+            </label>
+
+            <select class="form-select">
+
+                <option selected>
+                    Select a course
+                </option>
+
+                <option>
+                    Web Development
+                </option>
+
+                <option>
+                    Cloud Computing
+                </option>
+
+                <option>
+                    Database Systems
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- =====================================================
+             form-select-lg
+             Large dropdown
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Large Select
+            </label>
+
+            <select class="form-select form-select-lg">
+
+                <option>
+                    Large dropdown
+                </option>
+
+                <option>
+                    Option 1
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- =====================================================
+             form-select-sm
+             Small dropdown
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Small Select
+            </label>
+
+            <select class="form-select form-select-sm">
+
+                <option>
+                    Small dropdown
+                </option>
+
+                <option>
+                    Option 1
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- =====================================================
+             form-check + form-check-input + form-check-label
+             Checkbox
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Skills
+            </label>
+
+
+            <div class="form-check">
+
+                <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="htmlSkill">
+
+                <label
+                    class="form-check-label"
+                    for="htmlSkill">
+
+                    HTML
+
+                </label>
+
+            </div>
+
+
+            <div class="form-check">
+
+                <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="cssSkill">
+
+                <label
+                    class="form-check-label"
+                    for="cssSkill">
+
+                    CSS
+
+                </label>
+
+            </div>
+
+
+            <div class="form-check">
+
+                <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="jsSkill">
+
+                <label
+                    class="form-check-label"
+                    for="jsSkill">
+
+                    JavaScript
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             Radio buttons
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Study Mode
+            </label>
+
+
+            <div class="form-check">
+
+                <input
+                    class="form-check-input"
+                    type="radio"
+                    name="studyMode"
+                    id="online">
+
+                <label
+                    class="form-check-label"
+                    for="online">
+
+                    Online
+
+                </label>
+
+            </div>
+
+
+            <div class="form-check">
+
+                <input
+                    class="form-check-input"
+                    type="radio"
+                    name="studyMode"
+                    id="physical">
+
+                <label
+                    class="form-check-label"
+                    for="physical">
+
+                    Physical
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             form-switch
+             Checkbox styled as a switch
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Notifications
+            </label>
+
+            <div class="form-check form-switch">
+
+                <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="notificationSwitch"
+                    checked>
+
+                <label
+                    class="form-check-label"
+                    for="notificationSwitch">
+
+                    Enable notifications
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             form-check-inline
+             Displays options horizontally
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Preferred Technologies
+            </label>
+
+
+            <div class="form-check form-check-inline">
+
+                <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="techHtml">
+
+                <label
+                    class="form-check-label"
+                    for="techHtml">
+
+                    HTML
+
+                </label>
+
+            </div>
+
+
+            <div class="form-check form-check-inline">
+
+                <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="techCss">
+
+                <label
+                    class="form-check-label"
+                    for="techCss">
+
+                    CSS
+
+                </label>
+
+            </div>
+
+
+            <div class="form-check form-check-inline">
+
+                <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="techJs">
+
+                <label
+                    class="form-check-label"
+                    for="techJs">
+
+                    JavaScript
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             form-check-reverse
+             Places checkbox on the opposite side.
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <div class="form-check form-check-reverse">
+
+                <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="reverseCheck">
+
+                <label
+                    class="form-check-label"
+                    for="reverseCheck">
+
+                    Reverse checkbox
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             btn-check
+             Checkbox/radio styled as a button
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Choose a Plan
+            </label>
+
+            <!-- Hidden checkbox -->
+            <input
+                type="checkbox"
+                class="btn-check"
+                id="premiumPlan"
+                autocomplete="off">
+
+            <!-- Label looks like a button -->
+            <label
+                class="btn btn-outline-primary"
+                for="premiumPlan">
+
+                Premium Plan
+
+            </label>
+
+        </div>
+
+
+        <!-- =====================================================
+             form-range
+             Range slider
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Course Progress
+            </label>
+
+            <input
+                type="range"
+                class="form-range"
+                min="0"
+                max="100"
+                value="70">
+
+        </div>
+
+
+        <!-- =====================================================
+             input-group + input-group-text
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Course Fee
+            </label>
+
+            <div class="input-group">
+
+                <span class="input-group-text">
+                    $
+                </span>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    value="297">
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             input-group-sm
+             Small input group
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Small Input Group
+            </label>
+
+            <div class="input-group input-group-sm">
+
+                <span class="input-group-text">
+                    @
+                </span>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="username">
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             input-group-lg
+             Large input group
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Large Input Group
+            </label>
+
+            <div class="input-group input-group-lg">
+
+                <span class="input-group-text">
+                    https://
+                </span>
+
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="example.com">
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             form-floating
+             Floating label
+             ===================================================== -->
+
+        <div class="form-floating mb-3">
+
+            <input
+                type="email"
+                class="form-control"
+                id="floatingEmail"
+                placeholder="name@example.com">
+
+            <label for="floatingEmail">
+                Email Address
+            </label>
+
+        </div>
+
+
+        <!-- =====================================================
+             is-invalid
+             Bootstrap visual error state
+             ===================================================== -->
+
+        <div class="mb-3">
+
+            <label class="form-label">
+                Email Validation Example
+            </label>
+
+            <input
+                type="email"
+                class="form-control is-invalid"
+                value="wrong-email">
+
+            <div class="invalid-feedback">
+
+                Please enter a valid email address.
+
+            </div>
+
+        </div>
+
+
+        <!-- =====================================================
+             BUTTONS
+             Lecture concept:
+             Bootstrap button styles
+             ===================================================== -->
+
+        <div class="mb-4">
+
+            <button type="button" class="btn btn-primary">
+                Primary
+            </button>
+
+            <button type="button" class="btn btn-secondary">
+                Secondary
+            </button>
+
+            <button type="button" class="btn btn-success">
+                Success
+            </button>
+
+            <button type="button" class="btn btn-danger">
+                Danger
+            </button>
+
+            <button type="button" class="btn btn-warning">
+                Warning
+            </button>
+
+            <button type="button" class="btn btn-info">
+                Info
+            </button>
+
+        </div>
+
+
+        <!-- Submit button -->
+        <button
+            type="submit"
+            class="btn btn-primary">
+
+            Register Student
+
+        </button>
+
+    </form>
+
+</section>
+
+
+<!-- =========================================================
+     9. COLLAPSE
+     Lecture concept:
+     - Collapse
+     Show/hide content.
+     ========================================================= -->
+
+<div class="container mb-5">
+
+    <h2>
+        More Information
+    </h2>
+
+    <!-- Button controls the collapse -->
+    <button
+        class="btn btn-secondary"
+        data-bs-toggle="collapse"
+        data-bs-target="#moreInformation">
+
+        Show / Hide Information
+
+    </button>
+
+
+    <!-- Content that will collapse -->
+    <div
+        class="collapse mt-3"
+        id="moreInformation">
+
+        <div class="card card-body">
+
+            This content can be displayed or hidden
+            when the button is clicked.
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     10. ACCORDION
+     Lecture concept:
+     - Accordion
+     - Multiple collapsible sections
+     ========================================================= -->
+
+<section id="faq" class="container mb-5">
+
+    <h2 class="mb-4">
+        Frequently Asked Questions
+    </h2>
+
+
+    <div class="accordion" id="faqAccordion">
+
+
+        <!-- FAQ 1 -->
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqOne">
+
+                    What is Bootstrap?
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="faqOne"
+                class="accordion-collapse collapse show"
+                data-bs-parent="#faqAccordion">
+
+                <div class="accordion-body">
+
+                    Bootstrap is a framework that provides
+                    ready-made CSS and UI components.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FAQ 2 -->
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqTwo">
+
+                    Why use Bootstrap?
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="faqTwo"
+                class="accordion-collapse collapse"
+                data-bs-parent="#faqAccordion">
+
+                <div class="accordion-body">
+
+                    It helps developers build consistent
+                    responsive interfaces more quickly.
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FAQ 3 -->
+        <div class="accordion-item">
+
+            <h2 class="accordion-header">
+
+                <button
+                    class="accordion-button collapsed"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#faqThree">
+
+                    Is Bootstrap a replacement for HTML?
+
+                </button>
+
+            </h2>
+
+
+            <div
+                id="faqThree"
+                class="accordion-collapse collapse"
+                data-bs-parent="#faqAccordion">
+
+                <div class="accordion-body">
+
+                    No. Bootstrap works with HTML.
+                    HTML provides the structure while
+                    Bootstrap provides styling and components.
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     11. POPOVER
+     Lecture concept:
+     - Popover
+     Small contextual popup.
+     ========================================================= -->
+
+<div class="container mb-5">
+
+    <button
+        type="button"
+        class="btn btn-outline-info"
+        data-bs-toggle="popover"
+        data-bs-title="More Information"
+        data-bs-content="This is a Bootstrap popover.">
+
+        Click for More Information
+
+    </button>
+
+</div>
+
+
+<!-- =========================================================
+     12. PROGRESS BAR
+     Lecture concept:
+     - Progress
+     - Progress bar
+     ========================================================= -->
+
+<div class="container mb-5">
+
+    <h4>
+        Course Completion
+    </h4>
+
+    <div class="progress">
+
+        <div
+            class="progress-bar"
+            role="progressbar"
+            style="width: 70%;">
+
+            70%
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     13. SPINNER
+     Lecture concept:
+     - Spinner
+     Shows loading/processing state.
+     ========================================================= -->
+
+<div class="container mb-5">
+
+    <h4>
+        Loading Example
+    </h4>
+
+    <div class="spinner-border">
+
+        <span class="visually-hidden">
+            Loading...
+        </span>
+
+    </div>
+
+    <span class="ms-2">
+        Loading...
+    </span>
+
+</div>
+
+
+<!-- =========================================================
+     14. TOAST
+     Lecture concept:
+     - Toast
+     Lightweight temporary notification.
+     ========================================================= -->
+
+<div class="container mb-5">
+
+    <button
+        type="button"
+        class="btn btn-success"
+        id="showToastButton">
+
+        Show Toast Notification
+
+    </button>
+
+</div>
+
+
+<!-- Toast itself -->
+<div
+    class="toast-container position-fixed bottom-0 end-0 p-3">
+
+    <div
+        id="successToast"
+        class="toast"
+        role="alert">
+
+        <div class="toast-header">
+
+            <strong class="me-auto">
+                Student Portal
+            </strong>
+
+            <small>
+                Now
+            </small>
+
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="toast">
+            </button>
+
+        </div>
+
+        <div class="toast-body">
+
+            Your changes have been saved successfully!
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     15. PAGINATION
+     Lecture concept:
+     - Pagination
+     Shows links to different pages.
+     ========================================================= -->
+
+<div class="container mb-5">
+
+    <h4>
+        Course Pages
+    </h4>
+
+    <nav aria-label="Course pages">
+
+        <ul class="pagination">
+
+            <li class="page-item disabled">
+
+                <a class="page-link" href="#">
+                    Previous
+                </a>
+
+            </li>
+
+            <li class="page-item active">
+
+                <a class="page-link" href="#">
+                    1
+                </a>
+
+            </li>
+
+            <li class="page-item">
+
+                <a class="page-link" href="#">
+                    2
+                </a>
+
+            </li>
+
+            <li class="page-item">
+
+                <a class="page-link" href="#">
+                    3
+                </a>
+
+            </li>
+
+            <li class="page-item">
+
+                <a class="page-link" href="#">
+                    Next
+                </a>
+
+            </li>
+
+        </ul>
+
+    </nav>
+
+</div>
+
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
+<footer class="bg-dark text-white text-center p-4">
+
+    <p class="mb-0">
+        Bootstrap Lecture 6 Demo
+    </p>
+
+</footer>
+
+
+<!-- =========================================================
+     BOOTSTRAP JAVASCRIPT
+     
+     Some Bootstrap components need JavaScript to work:
+     - Navbar collapse
+     - Carousel
+     - Modal
+     - Accordion
+     - Collapse
+     - Popover
+     - Toast
+     etc.
+     ========================================================= -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+</script>
+
+
+<!-- =========================================================
+     INITIALIZE POPOVER
+     Bootstrap's popover requires JavaScript initialization.
+     ========================================================= -->
+
+<script>
+
+    const popoverTrigger =
+        document.querySelector('[data-bs-toggle="popover"]');
+
+    new bootstrap.Popover(popoverTrigger);
+
+
+    // ========================================================
+    // INITIALIZE TOAST
+    // The toast will appear when the button is clicked.
+    // ========================================================
+
+    const toastButton =
+        document.getElementById("showToastButton");
+
+    const toastElement =
+        document.getElementById("successToast");
+
+    const toast =
+        new bootstrap.Toast(toastElement);
+
+    toastButton.addEventListener("click", function () {
+
+        toast.show();
+
+    });
+
+</script>
+
+</body>
+</html>
