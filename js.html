@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Introduction to JavaScript - Lecture 8</title>
+</head>
+<body>
+
+    <h1>Introduction to JavaScript</h1>
+    <p>HTML provides structure, CSS provides styling, and JavaScript adds behavior.</p>
+
+    <hr>
+
+    <!-- 1. INCLUDING JAVASCRIPT -->
+    <h2>1. Including JavaScript</h2>
+
+    <script>
+        // JavaScript can be written inside a script tag.
+        console.log("Hello from JavaScript!");
+    </script>
+
+    <p>Open the browser console (F12) to see the message.</p>
+
+    <hr>
+
+    <!-- 2. VARIABLES -->
+    <h2>2. Variables and Data Types</h2>
+
+    <script>
+        // Variables store information.
+        var age = 32;                 // Number
+        var weight = 127.4;           // Decimal number
+        var clientName = "Saeed";     // String
+        var student = true;           // Boolean
+
+        // Display the values.
+        document.write("Age: " + age + "<br>");
+        document.write("Weight: " + weight + "<br>");
+        document.write("Name: " + clientName + "<br>");
+        document.write("Student: " + student + "<br>");
+    </script>
+
+    <hr>
+
+    <!-- 3. OPERATORS -->
+    <h2>3. Operators and Type Conversion</h2>
+
+    <script>
+        var a = 10;
+        var b = 3;
+
+        document.write("Addition: " + (a + b) + "<br>");
+        document.write("Subtraction: " + (a - b) + "<br>");
+        document.write("Multiplication: " + (a * b) + "<br>");
+        document.write("Division: " + (a / b) + "<br>");
+        document.write("Remainder: " + (a % b) + "<br>");
+
+        // Assignment operators.
+        var x = 10;
+        x += 5; // Same as x = x + 5
+        document.write("After x += 5: " + x + "<br>");
+
+        // The + operator joins strings.
+        document.write('"2" + 3 = ' + ("2" + 3) + "<br>");
+
+        // Multiplication converts a numeric string to a number.
+        document.write('"2" * 3 = ' + ("2" * 3) + "<br>");
+
+        // Loose equality permits type conversion.
+        document.write('5 == "5": ' + (5 == "5") + "<br>");
+
+        // Strict equality checks type and value.
+        document.write('5 === "5": ' + (5 === "5") + "<br>");
+    </script>
+
+    <hr>
+
+    <!-- 4. COMMENTS AND STRINGS -->
+    <h2>4. Comments and String Concatenation</h2>
+
+    <script>
+        // This is a single-line comment.
+
+        /*
+           This is a multiline comment.
+           JavaScript ignores comments.
+        */
+
+        var firstName = "Amina";
+        var greeting = "Hello, " + firstName + "!";
+
+        document.write(greeting);
+    </script>
+
+    <hr>
+
+    <!-- 5. CONDITIONAL STATEMENTS -->
+    <h2>5. Conditional Statements</h2>
+
+    <script>
+        var marks = 72;
+
+        if (marks >= 80) {
+            document.write("<p>A Grade</p>");
+        } else if (marks >= 60) {
+            document.write("<p>B Grade</p>");
+        } else {
+            document.write("<p>Needs Improvement</p>");
+        }
+    </script>
+
+    <hr>
+
+    <!-- 6. TRUTHY AND FALSY VALUES -->
+    <h2>6. Truthy and Falsy Values</h2>
+
+    <script>
+        // A non-empty string is truthy.
+        if ("Web development is great") {
+            document.write("<p>Non-empty string: TRUE</p>");
+        }
+
+        // Zero is falsy.
+        if (0) {
+            document.write("<p>This will not appear.</p>");
+        } else {
+            document.write("<p>Zero is falsy.</p>");
+        }
+
+        // The string "false" is truthy because it is not empty.
+        if ("false") {
+            document.write("<p>The string false is truthy.</p>");
+        }
+    </script>
+
+    <hr>
+
+    <!-- 7. LOOPS -->
+    <h2>7. Repetition Structures (Loops)</h2>
+
+    <script>
+        // A for loop repeats code a specific number of times.
+        for (var i = 1; i <= 5; i++) {
+            document.write("For loop: " + i + "<br>");
+        }
+
+        // A while loop repeats while its condition is true.
+        var count = 1;
+
+        while (count <= 3) {
+            document.write("While loop: " + count + "<br>");
+            count++;
+        }
+
+        // A do...while loop executes at least once.
+        var n = 1;
+
+        do {
+            document.write("Do-while loop: " + n + "<br>");
+            n++;
+        } while (n <= 3);
+    </script>
+
+    <hr>
+
+    <!-- 8. ARRAYS -->
+    <h2>8. Arrays and Array Methods</h2>
+
+    <script>
+        // An array stores multiple values.
+        var books = ["C", "Python", "ICT"];
+
+        document.write("First book: " + books[0] + "<br>");
+        document.write("Array length: " + books.length + "<br>");
+
+        var courses = [];
+
+        courses.push("Web");       // Add to the end.
+        courses.push("Android");
+        courses.push("Cloud");
+
+        document.write("Courses: " + courses.join(", ") + "<br>");
+
+        courses.pop();             // Remove the last item.
+        document.write("After pop: " + courses.join(", ") + "<br>");
+
+        courses.unshift("Maths");  // Add to the beginning.
+        document.write("After unshift: " + courses.join(", ") + "<br>");
+
+        courses.shift();           // Remove the first item.
+        document.write("After shift: " + courses.join(", ") + "<br>");
+
+        courses.sort();            // Sort alphabetically.
+        document.write("After sort: " + courses.join(", ") + "<br>");
+    </script>
+
+    <hr>
+
+    <!-- 9. FUNCTIONS -->
+    <h2>9. Functions and Parameters</h2>
+
+    <script>
+        // A function is a reusable block of code.
+        // 'name' is a parameter that receives a value.
+        function greet(name) {
+            return "Hello, " + name + "!";
+        }
+
+        // Call the function and pass an argument.
+        document.write(greet("Amina"));
+    </script>
+
+    <hr>
+
+    <!-- 10. EVENTS AND DOM -->
+    <h2>10. Events and the Document Object Model (DOM)</h2>
+
+    <p id="demo">This is the original paragraph.</p>
+
+    <!-- onclick runs JavaScript when the button is clicked. -->
+    <button type="button" onclick="changeText()">
+        Change Text
+    </button>
+
+    <button type="button" onclick="resetText()">
+        Reset Text
+    </button>
+
+    <script>
+        // Find the paragraph by its unique ID and change its content.
+        function changeText() {
+            document.getElementById("demo").textContent =
+                "Hello JavaScript! The paragraph has changed.";
+        }
+
+        // Restore the original paragraph.
+        function resetText() {
+            document.getElementById("demo").textContent =
+                "This is the original paragraph.";
+        }
+    </script>
+
+    <hr>
+
+    <!-- 11. CHANGING STYLES -->
+    <h2>11. Changing Styles with JavaScript</h2>
+
+    <p id="styleDemo">JavaScript can change my appearance.</p>
+
+    <button type="button" onclick="changeStyle()">
+        Change Style
+    </button>
+
+    <button type="button" onclick="resetStyle()">
+        Reset Style
+    </button>
+
+    <script>
+        // The style property lets JavaScript change inline CSS.
+        function changeStyle() {
+            var element = document.getElementById("styleDemo");
+
+            element.style.color = "white";
+            element.style.backgroundColor = "teal";
+            element.style.padding = "15px";
+            element.style.fontSize = "22px";
+        }
+
+        function resetStyle() {
+            var element = document.getElementById("styleDemo");
+
+            element.style.color = "";
+            element.style.backgroundColor = "";
+            element.style.padding = "";
+            element.style.fontSize = "";
+        }
+    </script>
+
+    <hr>
+
+    <!-- 12. INPUT, CONDITION, AND DOM COMBINED -->
+    <h2>12. Student Attendance Checker</h2>
+
+    <label for="attendance">Enter attendance percentage:</label>
+    <input type="number" id="attendance" min="0" max="100" value="85">
+
+    <button type="button" onclick="checkAttendance()">
+        Check Attendance
+    </button>
+
+    <p id="result">Your result will appear here.</p>
+
+    <script>
+        function checkAttendance() {
+            // Read the input and convert it to a number.
+            var rawValue = document.getElementById("attendance").value;
+            var percentage = Number(rawValue);
+
+            // Find the paragraph where we will display the result.
+            var result = document.getElementById("result");
+
+            // Validate the input before checking attendance.
+            if (rawValue.trim() === "" ||
+                !Number.isFinite(percentage) ||
+                percentage < 0 ||
+                percentage > 100) {
+
+                result.textContent = "Enter a valid percentage from 0 to 100.";
+
+            } else if (percentage >= 75) {
+
+                result.textContent = "Attendance requirement met!";
+
+            } else {
+
+                result.textContent = "Attendance is below 75%.";
+            }
+        }
+    </script>
+
+</body>
+</html>
