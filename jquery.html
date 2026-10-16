@@ -1,0 +1,1002 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 9 - Complete jQuery Practical Guide</title>
+
+    <!-- =====================================================
+         PART 1: LOAD JQUERY
+         The CDN loads jQuery for us. Internet is required.
+         ===================================================== -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- =====================================================
+         PART 2: CSS STYLING
+         CSS controls how our webpage looks.
+         ===================================================== -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            background: #f3f6fa;
+            color: #263449;
+        }
+
+        header {
+            background: #123b5d;
+            color: white;
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+        header p {
+            color: #e3edf5;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 25px auto;
+            padding: 0 16px;
+        }
+
+        section {
+            background: white;
+            margin-bottom: 22px;
+            padding: 22px;
+            border-radius: 12px;
+            box-shadow: 0 3px 12px #0000000c;
+        }
+
+        h2 {
+            color: #123b5d;
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #176b87;
+        }
+
+        button {
+            background: #176b87;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 14px;
+            margin: 4px 3px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #104b60;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid #bbc8d5;
+            border-radius: 6px;
+            margin: 5px;
+            max-width: 100%;
+        }
+
+        .demo-box {
+            background: #edf4f8;
+            border: 1px solid #cfdee8;
+            padding: 15px;
+            margin: 12px 0;
+            border-radius: 8px;
+        }
+
+        .highlight {
+            background: #fff0a6 !important;
+            color: #253858;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        .blue-text {
+            color: #176b87;
+        }
+
+        .small-note {
+            color: #637386;
+            font-size: 14px;
+        }
+
+        .code-note {
+            display: block;
+            background: #f1f4f8;
+            padding: 10px;
+            border-radius: 6px;
+            overflow-wrap: anywhere;
+        }
+
+        #animationBox {
+            background: #176b87;
+            width: 100px;
+            height: 75px;
+            border-radius: 8px;
+            margin: 12px 0;
+        }
+
+        #scrollPanel {
+            height: 120px;
+            overflow: auto;
+            border: 1px solid #aab9c7;
+            padding: 12px;
+            background: #f9fbfd;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #637386;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Introduction to jQuery</h1>
+    <p>Lecture 9 — Complete Practical Demonstration</p>
+    <p>Selectors | Events | Effects | HTML | CSS</p>
+</header>
+
+<main>
+
+    <!-- =====================================================
+         SECTION 1: BASIC SELECTORS
+         Lecture slides 5-10
+         ===================================================== -->
+    <section>
+        <h2>1. jQuery Selectors</h2>
+
+        <p id="demoParagraph">This is a paragraph with ID demoParagraph.</p>
+        <p class="intro">This is an introduction paragraph.</p>
+        <p class="intro">This is another introduction paragraph.</p>
+        <div class="intro">This is a div with class intro.</div>
+
+        <button id="selectTag">Select all paragraphs</button>
+        <button id="selectId">Select by ID</button>
+        <button id="selectClass">Select by class</button>
+        <button id="selectCombined">Select p.intro</button>
+        <button id="resetSelectors">Reset selector styles</button>
+
+        <p class="small-note">
+            Selectors: $("p"), $("#demoParagraph"), $(".intro"),
+            and $("p.intro").
+        </p>
+    </section>
+
+    <!-- =====================================================
+         SECTION 2: ATTRIBUTE SELECTORS
+         Lecture slide 8
+         ===================================================== -->
+    <section>
+        <h2>2. Attribute Selectors</h2>
+
+        <a href="https://example.com" target="_blank">Example website</a>
+        <br>
+        <a href="#">Placeholder link</a>
+        <br>
+        <a href="photo.jpg">Image link ending in .jpg</a>
+        <br>
+        <a>No href attribute</a>
+
+        <button id="selectHref">Select elements with href</button>
+        <button id="selectPlaceholder">Select href="#"</button>
+        <button id="selectJpg">Select href ending in .jpg</button>
+    </section>
+
+    <!-- =====================================================
+         SECTION 3: CSS MANIPULATION
+         Lecture slide 9
+         ===================================================== -->
+    <section>
+        <h2>3. Changing CSS with css()</h2>
+
+        <p class="cssDemo">Change my background and text color.</p>
+        <p class="cssDemo">My font size can also be changed.</p>
+
+        <button id="changeCss">Change CSS</button>
+        <button id="resetCss">Reset CSS</button>
+    </section>
+
+    <!-- =====================================================
+         SECTION 4: DOCUMENT READY
+         Lecture slide 6
+         All event handlers below are registered after
+         the HTML DOM is ready.
+         ===================================================== -->
+    <section>
+        <h2>4. Document Ready</h2>
+        <p id="readyMessage">
+            The jQuery ready function has initialized this page.
+        </p>
+
+        <span class="code-note">
+            $(document).ready(function() { /* Code here */ });
+        </span>
+    </section>
+
+    <!-- =====================================================
+         SECTION 5: EVENTS
+         Lecture slide 11
+         ===================================================== -->
+    <section>
+        <h2>5. jQuery Events</h2>
+
+        <p id="eventParagraph">
+            Click me, double-click me, or move your mouse over me.
+        </p>
+
+        <input id="nameInput" type="text"
+               placeholder="Click here to trigger focus">
+
+        <p id="eventMessage">Event messages appear here.</p>
+
+        <button id="eventButton">Click event button</button>
+    </section>
+
+    <!-- =====================================================
+         SECTION 6: HIDE AND SHOW
+         Lecture slides 13-15
+         ===================================================== -->
+    <section>
+        <h2>6. Hide, Show and Toggle</h2>
+
+        <p class="visibilityDemo">This paragraph can be hidden.</p>
+        <p class="visibilityDemo">This paragraph can be shown again.</p>
+
+        <button id="hideButton">Hide paragraphs</button>
+        <button id="showButton">Show paragraphs</button>
+        <button id="toggleButton">Toggle paragraphs</button>
+        <button id="hideSlowButton">Hide in 1 second</button>
+    </section>
+
+    <!-- =====================================================
+         SECTION 7: SLIDE EFFECTS
+         Lecture slide 16
+         ===================================================== -->
+    <section>
+        <h2>7. Slide Effects</h2>
+
+        <button id="slideDownButton">Slide Down</button>
+        <button id="slideUpButton">Slide Up</button>
+        <button id="slideToggleButton">Slide Toggle</button>
+
+        <div id="slidePanel" class="demo-box">
+            This panel opens and closes using slide effects.
+        </div>
+    </section>
+
+    <!-- =====================================================
+         SECTION 8: FADE EFFECTS
+         Lecture slide 17
+         ===================================================== -->
+    <section>
+        <h2>8. Fade Effects</h2>
+
+        <button id="fadeInButton">Fade In</button>
+        <button id="fadeOutButton">Fade Out</button>
+        <button id="fadeToButton">Fade To 50%</button>
+
+        <div id="fadePanel" class="demo-box">
+            This panel demonstrates opacity effects.
+        </div>
+    </section>
+
+    <!-- =====================================================
+         SECTION 9: CUSTOM ANIMATION
+         Lecture slide 18
+         ===================================================== -->
+    <section>
+        <h2>9. Custom Animation with animate()</h2>
+
+        <button id="animateButton">Animate Box</button>
+        <button id="resetAnimationButton">Reset Box</button>
+
+        <div id="animationBox"></div>
+
+        <p class="small-note">
+            The box changes width, opacity and left margin.
+        </p>
+    </section>
+
+    <!-- =====================================================
+         SECTION 10: CALLBACKS
+         Lecture slide 19
+         ===================================================== -->
+    <section>
+        <h2>10. Callback Functions</h2>
+
+        <p id="callbackParagraph">
+            This paragraph will disappear before the callback runs.
+        </p>
+
+        <button id="callbackButton">Hide with callback</button>
+    </section>
+
+    <!-- =====================================================
+         SECTION 11: CHANGE HTML
+         Lecture slide 20
+         ===================================================== -->
+    <section>
+        <h2>11. Change HTML Content</h2>
+
+        <p id="htmlParagraph">This is the original content.</p>
+
+        <button id="changeHtmlButton">Change HTML</button>
+        <button id="resetHtmlButton">Restore HTML</button>
+    </section>
+
+    <!-- =====================================================
+         SECTION 12: APPEND AND PREPEND
+         Lecture slide 21
+         ===================================================== -->
+    <section>
+        <h2>12. Append and Prepend</h2>
+
+        <ul id="courseList">
+            <li>Cloud Computing</li>
+            <li>Web Design</li>
+        </ul>
+
+        <button id="appendButton">Append course</button>
+        <button id="prependButton">Prepend course</button>
+    </section>
+
+    <!-- =====================================================
+         SECTION 13: BEFORE AND AFTER
+         Lecture slide 22
+         ===================================================== -->
+    <section>
+        <h2>13. Before and After</h2>
+
+        <p id="targetParagraph" class="demo-box">
+            This is the target paragraph.
+        </p>
+
+        <button id="beforeButton">Insert Before</button>
+        <button id="afterButton">Insert After</button>
+    </section>
+
+    <!-- =====================================================
+         SECTION 14: CSS CLASSES
+         Lecture slide 23
+         ===================================================== -->
+    <section>
+        <h2>14. CSS Class Methods</h2>
+
+        <p id="classParagraph">
+            Use the buttons to change my CSS class.
+        </p>
+
+        <button id="addClassButton">addClass()</button>
+        <button id="removeClassButton">removeClass()</button>
+        <button id="toggleClassButton">toggleClass()</button>
+        <button id="hasClassButton">hasClass()</button>
+    </section>
+
+    <!-- =====================================================
+         SECTION 15: WIDTH AND HEIGHT
+         Lecture slide 23
+         ===================================================== -->
+    <section>
+        <h2>15. Width and Height</h2>
+
+        <div id="dimensionsBox" class="demo-box"
+             style="width: 200px; height: 80px;">
+            Resize me
+        </div>
+
+        <button id="getDimensionsButton">Get Dimensions</button>
+        <button id="setDimensionsButton">Set Dimensions</button>
+
+        <p id="dimensionsMessage">Dimensions appear here.</p>
+    </section>
+
+    <!-- =====================================================
+         SECTION 16: POSITION AND OFFSET
+         Lecture slide 23
+         ===================================================== -->
+    <section>
+        <h2>16. Position and Offset</h2>
+
+        <div style="position: relative; padding: 15px;
+                    border: 1px dashed #999;">
+            <div id="positionBox"
+                 style="position: relative; left: 10px; top: 5px;
+                        background: #d9edf7; padding: 12px;">
+                Position test box
+            </div>
+        </div>
+
+        <button id="getPositionButton">Get Position</button>
+        <button id="getOffsetButton">Get Offset</button>
+        <button id="getParentButton">Get Offset Parent</button>
+
+        <p id="positionMessage">Position results appear here.</p>
+    </section>
+
+    <!-- =====================================================
+         SECTION 17: SCROLLING
+         Lecture slide 23
+         ===================================================== -->
+    <section>
+        <h2>17. Scroll Methods</h2>
+
+        <div id="scrollPanel">
+            <p>Scroll line 1</p>
+            <p>Scroll line 2</p>
+            <p>Scroll line 3</p>
+            <p>Scroll line 4</p>
+            <p>Scroll line 5</p>
+            <p>Scroll line 6</p>
+            <p>Scroll line 7</p>
+            <p>Scroll line 8</p>
+            <p>Scroll line 9</p>
+            <p>Scroll line 10</p>
+        </div>
+
+        <button id="scrollTopButton">Scroll to Top</button>
+        <button id="scrollBottomButton">Scroll to Bottom</button>
+        <button id="getScrollButton">Get Scroll Position</button>
+
+        <p id="scrollMessage">Scroll results appear here.</p>
+    </section>
+
+    <!-- =====================================================
+         SECTION 18: RESET ALL DEMOS
+         ===================================================== -->
+    <section>
+        <h2>18. Reset the Demonstrations</h2>
+        <p>Reset the examples to their initial states.</p>
+        <button id="resetAllButton">Reset All Demos</button>
+    </section>
+
+</main>
+
+<footer>
+    <p>Lecture 9: Introduction to jQuery</p>
+    <p>Prepared as a practical learning reference.</p>
+</footer>
+
+<!-- =========================================================
+     PART 3: JQUERY FUNCTIONS
+     All handlers are registered after the DOM is ready.
+     ========================================================= -->
+<script>
+
+$(document).ready(function() {
+
+    // =====================================================
+    // 1. BASIC SELECTORS
+    // =====================================================
+
+    // $("p") selects all paragraph elements.
+    $("#selectTag").click(function() {
+        $("p").css("color", "blue");
+    });
+
+    // $("#id") selects the element with the specified ID.
+    $("#selectId").click(function() {
+        $("#demoParagraph").css("background-color", "yellow");
+    });
+
+    // $(".class") selects every element with the specified class.
+    $("#selectClass").click(function() {
+        $(".intro").css("color", "green");
+    });
+
+    // $("p.intro") selects paragraphs with class "intro".
+    $("#selectCombined").click(function() {
+        $("p.intro").css("background-color", "#d9f2d9");
+    });
+
+    // Restore the selector demonstration to its original styles.
+    $("#resetSelectors").click(function() {
+        $("#demoParagraph, .intro").css({
+            "color": "",
+            "background-color": ""
+        });
+    });
+
+
+    // =====================================================
+    // 2. ATTRIBUTE SELECTORS
+    // =====================================================
+
+    // [href] selects elements that have an href attribute.
+    $("#selectHref").click(function() {
+        $("[href]").css("background-color", "yellow");
+    });
+
+    // [href='#'] selects elements whose href value equals "#".
+    $("#selectPlaceholder").click(function() {
+        $("[href='#']").css("color", "red");
+    });
+
+    // [$=] selects elements whose attribute ends with a value.
+    $("#selectJpg").click(function() {
+        $("[href$='.jpg']").css("background-color", "lightgreen");
+    });
+
+
+    // =====================================================
+    // 3. CSS MANIPULATION
+    // =====================================================
+
+    $("#changeCss").click(function() {
+
+        // css(property, value) sets one CSS property.
+        $(".cssDemo").css("background-color", "#fff0a6");
+
+        // Set another property.
+        $(".cssDemo").css("color", "#123b5d");
+
+        // Set several CSS properties in one call.
+        $(".cssDemo").css({
+            "font-size": "20px",
+            "padding": "10px"
+        });
+    });
+
+    $("#resetCss").click(function() {
+        $(".cssDemo").css({
+            "background-color": "",
+            "color": "",
+            "font-size": "",
+            "padding": ""
+        });
+    });
+
+
+    // =====================================================
+    // 4. DOCUMENT READY
+    // =====================================================
+
+    // This code runs once the DOM is ready.
+    $("#readyMessage").text(
+        "Success! The DOM is ready and jQuery is working."
+    );
+
+
+    // =====================================================
+    // 5. JQUERY EVENTS
+    // =====================================================
+
+    // click(): runs a function when an element is clicked.
+    $("#eventButton").click(function() {
+        $("#eventMessage").text("The button was clicked!");
+    });
+
+    // click(): also works on a paragraph.
+    $("#eventParagraph").click(function() {
+        $("#eventMessage").text("Paragraph clicked!");
+    });
+
+    // dblclick(): runs a function on a double-click.
+    $("#eventParagraph").dblclick(function() {
+        $(this).css("color", "red");
+        $("#eventMessage").text("Paragraph double-clicked!");
+    });
+
+    // focus(): runs when an input receives focus.
+    $("#nameInput").focus(function() {
+        $(this).css("background-color", "#fff0a6");
+        $("#eventMessage").text("The input received focus.");
+    });
+
+    // blur(): runs when the input loses focus.
+    // Included as an additional useful event example.
+    $("#nameInput").blur(function() {
+        $(this).css("background-color", "");
+    });
+
+    // mouseover(): runs when the pointer enters an element.
+    $("#eventParagraph").mouseover(function() {
+        $(this).css("background-color", "#d9edf7");
+    });
+
+    // mouseout(): runs when the pointer leaves an element.
+    $("#eventParagraph").mouseout(function() {
+        $(this).css("background-color", "");
+    });
+
+
+    // =====================================================
+    // 6. HIDE, SHOW AND TOGGLE
+    // =====================================================
+
+    // hide(): hides every matching paragraph.
+    $("#hideButton").click(function() {
+        $(".visibilityDemo").hide();
+    });
+
+    // show(): displays hidden paragraphs.
+    $("#showButton").click(function() {
+        $(".visibilityDemo").show();
+    });
+
+    // toggle(): switches between hidden and visible.
+    $("#toggleButton").click(function() {
+        $(".visibilityDemo").toggle();
+    });
+
+    // hide(speed): hides elements over a specified duration.
+    // 1000 milliseconds = approximately 1 second.
+    $("#hideSlowButton").click(function() {
+        $(".visibilityDemo").hide(1000);
+    });
+
+
+    // =====================================================
+    // 7. SLIDE EFFECTS
+    // =====================================================
+
+    // slideDown(): gradually reveals the panel.
+    $("#slideDownButton").click(function() {
+        $("#slidePanel").stop(true, true).slideDown(500);
+    });
+
+    // slideUp(): gradually hides the panel.
+    $("#slideUpButton").click(function() {
+        $("#slidePanel").stop(true, true).slideUp(500);
+    });
+
+    // slideToggle(): alternates between opening and closing.
+    $("#slideToggleButton").click(function() {
+        $("#slidePanel").stop(true, true).slideToggle(500);
+    });
+
+
+    // =====================================================
+    // 8. FADE EFFECTS
+    // =====================================================
+
+    // fadeIn(): fades in a hidden element.
+    $("#fadeInButton").click(function() {
+        $("#fadePanel").stop(true, true).fadeIn(500);
+    });
+
+    // fadeOut(): fades out and hides an element.
+    $("#fadeOutButton").click(function() {
+        $("#fadePanel").stop(true, true).fadeOut(500);
+    });
+
+    // fadeTo(duration, opacity): changes the target opacity.
+    // Opacity 0.5 means 50% opacity.
+    $("#fadeToButton").click(function() {
+        $("#fadePanel").stop(true, true).fadeTo(500, 0.5);
+    });
+
+
+    // =====================================================
+    // 9. CUSTOM ANIMATION
+    // =====================================================
+
+    $("#animateButton").click(function() {
+
+        // animate() changes supported CSS properties over time.
+        $("#animationBox").stop(true, true).animate({
+            width: "300px",
+            opacity: 0.5,
+            marginLeft: "50px"
+        }, 1000, "swing");
+
+        // Parameters:
+        // 1. Object containing target CSS values.
+        // 2. Duration in milliseconds.
+        // 3. Easing: "swing" or "linear".
+        // 4. Optional callback function.
+    });
+
+    $("#resetAnimationButton").click(function() {
+
+        // Stop ongoing animation and restore original values.
+        $("#animationBox").stop(true, true).css({
+            width: "100px",
+            height: "75px",
+            opacity: 1,
+            marginLeft: "0"
+        });
+    });
+
+
+    // =====================================================
+    // 10. CALLBACK FUNCTIONS
+    // =====================================================
+
+    $("#callbackButton").click(function() {
+
+        // The callback executes after the hide effect completes.
+        $("#callbackParagraph").hide(1000, function() {
+            alert("The paragraph is now hidden!");
+        });
+
+        // Without a callback, an alert placed on the next line
+        // would run immediately, rather than waiting for the
+        // hide animation to complete.
+    });
+
+
+    // =====================================================
+    // 11. CHANGE HTML CONTENT
+    // =====================================================
+
+    $("#changeHtmlButton").click(function() {
+
+        // html() replaces the existing inner HTML.
+        $("#htmlParagraph").html(
+            "The content has changed to <strong>new HTML</strong>."
+        );
+    });
+
+    $("#resetHtmlButton").click(function() {
+        $("#htmlParagraph").text("This is the original content.");
+    });
+
+
+    // =====================================================
+    // 12. APPEND AND PREPEND
+    // =====================================================
+
+    // append(): inserts new content at the end inside the list.
+    $("#appendButton").click(function() {
+        $("#courseList").append("<li>Database Systems</li>");
+    });
+
+    // prepend(): inserts new content at the beginning inside.
+    $("#prependButton").click(function() {
+        $("#courseList").prepend("<li>Computer Networks</li>");
+    });
+
+
+    // =====================================================
+    // 13. BEFORE AND AFTER
+    // =====================================================
+
+    // before(): inserts content before the selected element.
+    $("#beforeButton").click(function() {
+        $("#targetParagraph").before(
+            "<p class='demo-box'>Inserted before the target.</p>"
+        );
+    });
+
+    // after(): inserts content after the selected element.
+    $("#afterButton").click(function() {
+        $("#targetParagraph").after(
+            "<p class='demo-box'>Inserted after the target.</p>"
+        );
+    });
+
+
+    // =====================================================
+    // 14. CSS CLASS METHODS
+    // =====================================================
+
+    // addClass(): applies a CSS class.
+    $("#addClassButton").click(function() {
+        $("#classParagraph").addClass("highlight");
+    });
+
+    // removeClass(): removes a CSS class.
+    $("#removeClassButton").click(function() {
+        $("#classParagraph").removeClass("highlight");
+    });
+
+    // toggleClass(): adds the class if absent, removes if present.
+    $("#toggleClassButton").click(function() {
+        $("#classParagraph").toggleClass("highlight");
+    });
+
+    // hasClass(): returns true or false for the first matched
+    // element's class membership.
+    $("#hasClassButton").click(function() {
+        const hasHighlight = $("#classParagraph").hasClass("highlight");
+
+        alert(
+            hasHighlight
+                ? "The highlight class is applied."
+                : "The highlight class is not applied."
+        );
+    });
+
+
+    // =====================================================
+    // 15. WIDTH AND HEIGHT
+    // =====================================================
+
+    $("#getDimensionsButton").click(function() {
+
+        // width() and height() return content dimensions in px.
+        const boxWidth = $("#dimensionsBox").width();
+        const boxHeight = $("#dimensionsBox").height();
+
+        $("#dimensionsMessage").text(
+            "Width: " + boxWidth + "px; Height: " + boxHeight + "px"
+        );
+    });
+
+    $("#setDimensionsButton").click(function() {
+
+        // width(value) and height(value) set dimensions.
+        $("#dimensionsBox").width(300);
+        $("#dimensionsBox").height(120);
+    });
+
+
+    // =====================================================
+    // 16. POSITION, OFFSET AND OFFSETPARENT
+    // =====================================================
+
+    // position(): position relative to the offset parent.
+    $("#getPositionButton").click(function() {
+        const pos = $("#positionBox").position();
+
+        $("#positionMessage").text(
+            "Position — left: " + pos.left +
+            "px, top: " + pos.top + "px"
+        );
+    });
+
+    // offset(): position relative to the document.
+    $("#getOffsetButton").click(function() {
+        const off = $("#positionBox").offset();
+
+        $("#positionMessage").text(
+            "Offset — left: " + off.left +
+            "px, top: " + off.top + "px"
+        );
+    });
+
+    // offsetParent(): finds the nearest positioned ancestor.
+    $("#getParentButton").click(function() {
+        const parentTag = $("#positionBox").offsetParent().prop("tagName");
+
+        $("#positionMessage").text(
+            "Offset parent element: " + parentTag
+        );
+    });
+
+
+    // =====================================================
+    // 17. SCROLL METHODS
+    // =====================================================
+
+    // scrollTop(value): sets the vertical scroll position.
+    $("#scrollTopButton").click(function() {
+        $("#scrollPanel").scrollTop(0);
+    });
+
+    // Scroll to the bottom of the panel.
+    $("#scrollBottomButton").click(function() {
+        const panel = $("#scrollPanel");
+
+        panel.scrollTop(
+            panel[0].scrollHeight
+        );
+    });
+
+    // scrollTop() and scrollLeft() can also return values.
+    $("#getScrollButton").click(function() {
+
+        const vertical = $("#scrollPanel").scrollTop();
+        const horizontal = $("#scrollPanel").scrollLeft();
+
+        $("#scrollMessage").text(
+            "Vertical: " + vertical +
+            "px; Horizontal: " + horizontal + "px"
+        );
+    });
+
+
+    // =====================================================
+    // 18. RESET ALL DEMONSTRATIONS
+    // =====================================================
+
+    $("#resetAllButton").click(function() {
+
+        // Reset selector styles.
+        $("#demoParagraph, .intro").css({
+            color: "",
+            backgroundColor: ""
+        });
+
+        // Reset attribute selector styling.
+        $("[href]").css({
+            backgroundColor: "",
+            color: ""
+        });
+
+        // Reset CSS demo.
+        $(".cssDemo").css({
+            backgroundColor: "",
+            color: "",
+            fontSize: "",
+            padding: ""
+        });
+
+        // Restore event demo styles.
+        $("#eventParagraph").css({
+            color: "",
+            backgroundColor: ""
+        });
+
+        $("#nameInput").css("background-color", "");
+        $("#eventMessage").text("Event messages appear here.");
+
+        // Restore visibility examples.
+        $(".visibilityDemo").stop(true, true).show();
+
+        // Restore slide and fade examples.
+        $("#slidePanel").stop(true, true).show();
+        $("#fadePanel").stop(true, true).show().css("opacity", 1);
+
+        // Restore animation box.
+        $("#animationBox").stop(true, true).css({
+            width: "100px",
+            height: "75px",
+            opacity: 1,
+            marginLeft: "0"
+        });
+
+        // Restore callback example.
+        $("#callbackParagraph").stop(true, true).show();
+
+        // Restore HTML content.
+        $("#htmlParagraph").text("This is the original content.");
+
+        // Restore the course list to its original items.
+        $("#courseList").html(
+            "<li>Cloud Computing</li><li>Web Design</li>"
+        );
+
+        // Remove inserted before/after demo paragraphs.
+        $("#targetParagraph").prev("p.demo-box").remove();
+        $("#targetParagraph").next("p.demo-box").remove();
+
+        // Restore the target paragraph.
+        $("#targetParagraph").css({
+            backgroundColor: "",
+            color: ""
+        });
+
+        // Restore class demo.
+        $("#classParagraph").removeClass("highlight");
+
+        // Restore dimension demo.
+        $("#dimensionsBox").css({
+            width: "200px",
+            height: "80px"
+        });
+
+        // Restore scroll position.
+        $("#scrollPanel").scrollTop(0).scrollLeft(0);
+
+        // Reset result messages.
+        $("#dimensionsMessage").text("Dimensions appear here.");
+        $("#positionMessage").text("Position results appear here.");
+        $("#scrollMessage").text("Scroll results appear here.");
+
+        // Restore the selector demo's normal text color.
+        $("#readyMessage").text(
+            "Success! The DOM is ready and jQuery is working."
+        );
+
+    });
+
+}); // End of $(document).ready()
+
+</script>
+
+</body>
+</html>
